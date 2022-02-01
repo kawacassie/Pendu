@@ -3,7 +3,7 @@
 ### Projet : Créer un jeu simple ###
 
 
-### Lancer le server : ###
+### Lancer le serveur : ###
 
 Nodejs doit être installé 
 
