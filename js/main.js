@@ -14,6 +14,8 @@ const words = [
     "DRAPEAU"
 ];
 
+let choices = [];
+
 let word = "";
 
 const init = () => {
@@ -26,10 +28,13 @@ const init = () => {
 
     // Sélectionner un mot
     word = pickWord();
-    console.log("word", word);
+    //console.log("word", word);
 
     //      - créer mapping de mot
+
     // Générer les lettres pour les choix
+    choices = generateChoices();
+    console.log(choices);
     //      - créer mapping des choix
     // Afficher le mot 
     // Afficher les choix 
@@ -41,6 +46,14 @@ const init = () => {
     //      - Fin de jeu : 
     //              - score max = perdu
     //              - toutes les lettres = gagné
+};
+
+const generateChoices = () => {
+    const choices = [];
+    for(let index = 65; index <= 90; index++) {
+        choices.push(String.fromCharCode(index));
+    }
+    return choices;
 };
 
 const pickWord = () => {
