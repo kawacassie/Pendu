@@ -15,8 +15,9 @@ const words = [
 ];
 
 let choices = [];
-
 let word = "";
+let wordMapping = [];
+let choicesMapping = [];
 
 const init = () => {
     //console.log('>> #init');
@@ -34,8 +35,12 @@ const init = () => {
 
     // Générer les lettres pour les choix
     choices = generateChoices();
-    console.log(choices);
+    //console.log(choices);
+
     //      - créer mapping des choix
+    choicesMapping = getChoicesMapping(choices);
+    console.log(choicesMapping);
+
     // Afficher le mot 
     // Afficher les choix 
     // Afficher le score (nombre d'erreurs)
@@ -54,6 +59,16 @@ const generateChoices = () => {
         choices.push(String.fromCharCode(index));
     }
     return choices;
+};
+
+const getChoicesMapping = (choices) => {
+    const choicesMapping = choices.map((letter) => {
+        return {
+            letter,
+            isChosen: false
+        };
+    });
+    return choicesMapping;
 };
 
 const pickWord = () => {
