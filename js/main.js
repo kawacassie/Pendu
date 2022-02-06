@@ -30,16 +30,16 @@ const init = () => {
     // Sélectionner un mot
     word = pickWord();
     //console.log("word", word);
-
     //      - créer mapping de mot
+    wordMapping = getWordMapping(word);
+    console.log("wordMapping", wordMapping);
 
     // Générer les lettres pour les choix
     choices = generateChoices();
     //console.log(choices);
-
     //      - créer mapping des choix
     choicesMapping = getChoicesMapping(choices);
-    console.log(choicesMapping);
+    //console.log(choicesMapping);
 
     // Afficher le mot 
     // Afficher les choix 
@@ -69,6 +69,19 @@ const getChoicesMapping = (choices) => {
         };
     });
     return choicesMapping;
+};
+
+const getWordMapping = (word) => {
+    const wordArray = word.split("");
+    console.log("word", word);
+    console.log("wordArray", wordArray);
+    const wordMapping = wordArray.map((letter) => {
+        return {
+            letter,
+            isVisible: false
+        };
+    });
+    return wordMapping;
 };
 
 const pickWord = () => {
